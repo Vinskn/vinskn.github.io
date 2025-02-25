@@ -36,7 +36,7 @@ const Certificate_desktop = () => {
                 <div onMouseEnter={() => setImage("st1")} onMouseLeave={() => setImage("")} className="border-b-1 border-red-900 pb-4 p-4 mb-5 relative bg-red-950/15 rounded-t-2xl">
                     {
                         image === "st1" &&
-                        <img src="/addData/1-MicrosoftMOSExcel.png" alt="certif" className="absolute rounded-2xl z-10 w-1/2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
+                        <img src="https://res.cloudinary.com/destefwak/image/upload/v1738491369/portoAssets/addData/certif/wyuof8rnrevv4miiwhy8.png" alt="certif" className="absolute rounded-2xl z-10 w-1/2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
                     }
                     <h1 className="font-kaushan text-2xl">Microsoft Office Specialist: Excel Associate</h1>
                     <p className="text-sm text-justify">Microsoft Office Specialist (MOS) Excel Associate certification demonstrates my proficiency in using Microsoft Excel to manage and analyze data effectively. This certification validates my ability to create and format worksheets, use functions and formulas, and visualize data through charts and tables, showcasing my skills in spreadsheet management and data analysis.</p>
@@ -52,7 +52,7 @@ const Certificate_desktop = () => {
                 <div onMouseEnter={() => setImage("st2")} onMouseLeave={() => setImage("")} className="border-b-1 border-red-900 pb-4 p-4 mb-5 relative bg-red-950/15 rounded-t-2xl">
                     {
                         image === "st2" &&
-                        <img src="/addData/2-DicodingML.png" alt="certif" className="absolute rounded-2xl z-10 w-1/2 top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
+                        <img src="https://res.cloudinary.com/destefwak/image/upload/v1738491372/portoAssets/addData/certif/vlkewuw1bzg78myxqhtd.png" alt="certif" className="absolute rounded-2xl z-10 w-1/2 top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
                     }
                     <h1 className="font-kaushan text-2xl">Dicoding: Starting with Machine Learning</h1>
                     <p className="text-sm text-justify">The Dicoding ML Foundations certification demonstrates my understanding of fundamental machine learning concepts, including machine learning frameworks such as TensorFlow and Keras. Through this course, I developed an image identifier as a final project, showcasing my ability to build and implement ML models for image recognition.</p>
@@ -68,7 +68,7 @@ const Certificate_desktop = () => {
                 <div onMouseEnter={() => setImage("st3")} onMouseLeave={() => setImage("")} className="border-b-1 border-red-900 pb-4 p-4 mb-5 relative bg-red-950/15 rounded-t-2xl">
                     {
                         image === "st3" &&
-                        <img src="/addData/3-DicodingJS.png" alt="certif" className="absolute rounded-2xl z-10 w-1/2 top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
+                        <img src="https://res.cloudinary.com/destefwak/image/upload/v1738491368/portoAssets/addData/certif/w1gkjx2ugmiluiviwqlh.png" alt="certif" className="absolute rounded-2xl z-10 w-1/2 top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
                     }
                     <h1 className="font-kaushan text-2xl">Dicoding: Basic Javascript</h1>
                     <p className="text-sm text-justify">The Dicoding JavaScript Basics certification validates my foundational knowledge of JavaScript programming. Throughout this course, I learned core concepts such as operations, functions, object-oriented programming (OOP), asynchronous methods, and code quality based on ECMAScript standards, enabling me to write clean and efficient JavaScript code.</p>

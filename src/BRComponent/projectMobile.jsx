@@ -26,8 +26,8 @@ const Project_mobile = () => {
             </div>
 
             <div className='bg-red-700/25 p-3 rounded-3xl mb-4'>
-              <h1 className='text-xl font-bold font-kaushan mb-1'>Tristar Invoice Generator</h1>
-              <p className='font-light text-xs text-justify font-karma'>Tristar Invoice Generator is a Python-based application built with the Kivy framework, utilizing libraries such as Pandas, Webbrowser, FPDF, and Babel. Its primary function is to generate invoices based on user input, producing a ready-to-print PDF document efficiently.</p>
+              <h1 className='text-xl font-bold font-kaushan mb-1'>ZooSphere: Zoo Website</h1>
+              <p className='font-light text-xs text-justify font-karma'>ZooSphere is a zoo website that provides information about animals, ticket prices, and the zoo's history. One of its key features is a ticket generation system that creates unique codes and QR codes, which are stored in a database. Additionally, the admin dashboard allows ticket price adjustments and access to sold ticket records. The website is built using React, with supporting libraries such as Express, Redux, and Random. It uses MongoDB for database management, while Node.js serves as the API provider connecting the frontend and backend.</p>
               <div className='flex justify-between mt-4'>
                 <div className='text-xl grid grid-cols-10 gap-3 w-7/10'>
                   <i class="devicon-python-plain"/>

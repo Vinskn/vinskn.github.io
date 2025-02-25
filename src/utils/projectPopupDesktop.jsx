@@ -14,7 +14,7 @@ const Project_popup = (props) => {
                 <Swiper pagination={{dynamicBullets: true}} loop={true} modules={[Pagination]}>
                     {
                         image.map((i, j) => (
-                            <SwiperSlide key={j}> <img src={i} alt="" className='rounded-2xl w-1/2 mx-auto'/> </SwiperSlide>
+                            <SwiperSlide key={j}> <img src={i} alt="" className='rounded-2xl w-8/10 mx-auto'/> </SwiperSlide>
                         ))
                     }
                 </Swiper>
@@ -30,7 +30,7 @@ const Project_popup = (props) => {
                     }
                     
                 </div>
-                <a href={link}><button className='text-black bg-white px-5 py-0.5 text-sm rounded-2xl font-kaushan'>See Project</button></a>
+                <a href={link} target='_blank'><button className='text-black bg-white px-5 py-0.5 text-sm rounded-2xl font-kaushan'>See Project</button></a>
             </div>
         </div>
     )

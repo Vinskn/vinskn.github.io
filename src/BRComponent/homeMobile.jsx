@@ -4,7 +4,7 @@ const Home_mobile = () => {
     return(
         <>
             <section id='Home' className='bg-myRed-400 p-5 rounded-t-2xl'>
-                <img src="./profile-pic.png" alt="profilPhoto" className='w-2/3 rounded-t-2xl mx-auto'/>
+                <img src="/profile-pic.png" alt="profilPhoto" className='w-2/3 rounded-t-2xl mx-auto'/>
                 <div className='mt-2 bg-myRed-600/90 pt-10 pb-16'>
                     <h1 className='text-center text-3xl font-kaushan'>Sinamo Kevin Nathanael</h1>
                     <h1 className='font-karma text-center text-2xl'>Software Engineer</h1>

@@ -42,7 +42,7 @@ const Certificate_mobile = () => {
                   <h1 className='text-sm font-karma tracking-wider'>Credential: x5a7-sFpA</h1>
                 </div>
                 <div className='flex justify-end'>
-                  <a href="/addData/1-MicrosoftMOSExcel.png" target="_blank"><button className='bg-white text-black px-4 py-0.5 rounded-xl text-sm font-kaushan'>See Certificate</button></a>
+                  <a href="https://res.cloudinary.com/destefwak/image/upload/v1738491369/portoAssets/addData/certif/wyuof8rnrevv4miiwhy8.png" target="_blank"><button className='bg-white text-black px-4 py-0.5 rounded-xl text-sm font-kaushan'>See Certificate</button></a>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@ const Certificate_mobile = () => {
                   <h1 className='text-sm font-karma tracking-wider'>Credential: 07Z64J12RPQR</h1>
                 </div>
                 <div className='flex justify-end'>
-                  <a href="/addData/2-DicodingML.png" target="_blank"><button className='bg-white text-black px-4 py-0.5 rounded-xl text-sm font-kaushan'>See Certificate</button></a>
+                  <a href="https://res.cloudinary.com/destefwak/image/upload/v1738491372/portoAssets/addData/certif/vlkewuw1bzg78myxqhtd.png" target="_blank"><button className='bg-white text-black px-4 py-0.5 rounded-xl text-sm font-kaushan'>See Certificate</button></a>
                 </div>
               </div>
             </div>  
@@ -70,7 +70,7 @@ const Certificate_mobile = () => {
                   <h1 className='text-sm font-karma tracking-wider'>Credential: KEXLY8J6YZG2</h1>
                 </div>
                 <div className='flex justify-end'>
-                  <a href="/addData/3-DicodingJS.png" target="_blank"><button className='bg-white text-black px-4 py-0.5 rounded-xl text-sm font-kaushan'>See Certificate</button></a>
+                  <a href="https://res.cloudinary.com/destefwak/image/upload/v1738491368/portoAssets/addData/certif/w1gkjx2ugmiluiviwqlh.png" target="_blank"><button className='bg-white text-black px-4 py-0.5 rounded-xl text-sm font-kaushan'>See Certificate</button></a>
                 </div>
               </div>
             </div>

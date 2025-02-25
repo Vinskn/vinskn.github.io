@@ -9,7 +9,7 @@
     font-family: "kaushan";
     font-weight: 400;
     font-style: normal;
-    src: url('./fonts/Kaushan_Script/KaushanScript-Regular.ttf') format('truetype')
+    src: url('/fonts/Kaushan_Script/KaushanScript-Regular.ttf') format('truetype')
 }
 
 
