@@ -1,5 +1,32 @@
-const Project_mobile = () => {
+import { useEffect, useState } from "react";
+import Project_popup from "../utils/projectPopupDesktop";
+import axios from 'axios';
 
+const Project_mobile = () => {
+  const [isVisible, setVisible] = useState("");
+    const [loadMore, setLoadMore] = useState(false);
+    const [prjData, setPrjData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const handleLoadMore = () => {
+        setLoading(true);
+        if (!loadMore){
+            axios.get('http://fi4.bot-hosting.net:21303/api/PortofolioV2/Project-Part')
+                .then(response => {
+                    setPrjData(response.data);
+                    setLoadMore(true);
+                    setLoading(false);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+        else {
+            setPrjData([])
+            setLoadMore(false);
+            setLoading(false)
+        }
+    }
 
 
     return (
@@ -37,10 +64,33 @@ const Project_mobile = () => {
                 <a href="#" className='bg-white hover:bg-gray-200 text-black px-5 rounded-4xl font-kaushan'><button>See Project</button></a>
               </div>
             </div>
+
+            {
+              loading ? (<p>Loading</p>) :
+              prjData.map((i) => (
+                <div className='bg-red-700/25 p-3 rounded-3xl mb-4'>
+                  <h1 className='text-xl font-bold font-kaushan mb-1'>{i.prjName}</h1>
+                  <p className='font-light text-xs text-justify font-karma'>{i.prjDesc}</p>
+                  <div className='flex justify-between mt-4'>
+                    <div className='text-xl grid grid-cols-10 gap-3 w-7/10'>
+                      {
+                        i.progIcn.map((y) => (
+                          <i class={y}/>
+                        ))
+                      }
+                    </div>
+                    <a href="i.linkPrj" className='bg-white hover:bg-gray-200 text-black px-5 rounded-4xl font-kaushan'><button>See Project</button></a>
+                  </div>
+                </div>
+              ))
+            }
                
           </div>
           <div className='flex justify-center'>
-            <a href="#"><button className='bg-white hover:bg-gray-200 text-black px-10 py-1 rounded-xl font-kaushan'>Load More</button></a>
+          <button onClick={handleLoadMore} 
+                className={`${loadMore ? "bg-myRed-600 hover:bg-red-800 text-white" : "bg-white hover:bg-gray-300 text-black"} px-10 py-1 rounded-xl font-kaushan`}
+                >{loadMore ? "See Less" : "Load More"}
+            </button>
           </div>
         </section>
     )

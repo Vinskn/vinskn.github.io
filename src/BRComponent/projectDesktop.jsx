@@ -12,7 +12,7 @@ const Project_desktop = () => {
     const handleLoadMore = () => {
         setLoading(true);
         if (!loadMore){
-            axios.get('http://localhost:5000/api/PortofolioV2/Project-Part')
+            axios.get('http://fi4.bot-hosting.net:21303/api/PortofolioV2/Project-Part')
                 .then(response => {
                     setPrjData(response.data);
                     setLoadMore(true);

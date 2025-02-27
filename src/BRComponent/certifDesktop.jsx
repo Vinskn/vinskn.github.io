@@ -12,7 +12,7 @@ const Certificate_desktop = () => {
     const handleLoadMore = () => {
         setLoading(true);
         if (!loadMore){
-          axios.get('http://localhost:5000/api/PortofolioV2/Certificate-Part')
+          axios.get('http://fi4.bot-hosting.net:21303/api/PortofolioV2/Certificate-Part')
           .then((res) => {
             setData(res.data);
             setLoading(false);
@@ -87,7 +87,7 @@ const Certificate_desktop = () => {
                         <div key={i._id} onMouseEnter={() => setImage(i._id)} onMouseLeave={() => setImage("")} className="border-b-1 border-red-900 pb-4 p-4 mb-5 relative bg-red-950/15 rounded-t-2xl">
                             {
                                 image === `${i._id}` &&
-                                <img src={`http://localhost:5000${i.path}`} alt={i.CertiName} className="absolute rounded-2xl z-10 w-1/2 top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
+                                <img src={i.path} alt={i.CertiName} className="absolute rounded-2xl z-10 w-1/2 top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
                             }
                             <h1 className="font-kaushan text-2xl">{i.CertiName}</h1>
                             <p className="text-sm text-justify">{i.desc}</p>

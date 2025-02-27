@@ -12,7 +12,7 @@ const Certificate_mobile = () => {
     const handleSeeMore = () => {
       setLoading(true);
       if (!seeMore){
-        axios.get('http://localhost:5000/api/PortofolioV2/Certificate-Part')
+        axios.get('http://fi4.bot-hosting.net:21303/api/PortofolioV2/Certificate-Part')
         .then((res) => {
           setData(res.data);
         })
@@ -87,7 +87,7 @@ const Certificate_mobile = () => {
                       <h1 className='text-sm font-karma tracking-wider'>Credential: {i.credential}</h1>
                     </div>
                     <div className='flex justify-end'>
-                      <a href={`http://localhost/5000/${i.path}`} target="_blank"><button className='bg-white text-black px-4 py-0.5 rounded-xl text-sm font-kaushan'>See Certificate</button></a>
+                      <a href={i.path} target="_blank"><button className='bg-white text-black px-4 py-0.5 rounded-xl text-sm font-kaushan'>See Certificate</button></a>
                     </div>
                   </div>
                 </div>
