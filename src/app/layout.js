@@ -23,7 +23,7 @@ export const metadata = {
     description: "Hi, I'm Sinamo Kevin Nathanael — a passionate web developer offering custom app & website solutions. Check out my projects, certifications, and services.",
     images: [
       {
-        url: 'https://example.com/Vin Logo.png',
+        url: "https://sinamokevin.vercel.app/Vin's%20Logo.png",
         width: 500,
         height: 500
       }

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@intentui/icons": "^1.11.0",
+    "@supabase/supabase-js": "^2.52.1",
     "motion": "^12.23.3",
     "next": "15.3.5",
     "react": "^19.0.0",

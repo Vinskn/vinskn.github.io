@@ -2,8 +2,8 @@
 import NavPages from "@/component/NavPages";
 import NavSection from "@/component/NavSection";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
 import SplashScreen from "@/component/SplashScreen";
 import LandingPage from "@/component/pageComponents/Landing";
 import Typewriter from 'typewriter-effect';
@@ -12,9 +12,13 @@ import UseAnimationFrame from "@/component/pageAssets/Cube3d";
 export default function App() {
     const [ runSplash, setRunSplash ] = useState(false); // ganti ke true jan lupa
     const [ inLanding, setInLanding ] = useState(true);
-    useEffect(() => {
-        console.log("dari app", inLanding);  
-    }, [inLanding])
+
+    const welcomeSectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: welcomeSectionRef,
+        offset: ["start ", "end start"], 
+    });
+    const reversedProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
     
 
     return (
@@ -59,14 +63,26 @@ export default function App() {
                             </div>
                         </motion.section>
 
-                        <section className="w-full h-[80vh] bg-black flex flex-col justify-center items-center">
+                        <section ref={welcomeSectionRef} className="w-full h-[90vh] bg-black flex flex-col justify-center items-center relative">
                             <motion.h2
-                                // initial={{ }}
-                                className="lg:text-3xl sm:text-2xl xs:text-lg font-bold text-start text-white"
+                                className="lg:text-3xl sm:text-2xl xs:text-lg font-bold text-start text-white z-20"
                             >
                                 Welcome to My Portofolio Website
                             </motion.h2>
-                            {/* <UseAnimationFrame /> */}
+                            <motion.div
+                                style={{
+                                    scaleX: reversedProgress,
+                                    originX: 1,
+                                }}
+                                className="absolute w-1/2 h-full bg-background bottom-0 left-0"
+                            />
+                            <motion.div
+                                style={{
+                                    scaleX: reversedProgress,
+                                    originX: 0,
+                                }}
+                                className="absolute w-1/2 h-full bg-background bottom-0 right-0"
+                            />
                         </section>
 
                         <LandingPage openerSection={setInLanding}/>
