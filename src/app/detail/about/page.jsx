@@ -179,7 +179,7 @@ export default function About({  }) {
                             <p className="text-red-600">{errorFetch}</p>
                             {
                                 certifList.slice(0, certifSeeMore ? certifList.length : 3).map((data, idx) => (
-                                    <motion.div initial={{ y: 10 }} whileInView={{ y: 0 }} transition={{ duration: 0.5, ease: "easeOut"}} className="py-5 px-5 shadow-xl border-2 border-gray-200 rounded-xl flex items-center gap-5 w-full">
+                                    <motion.div key={idx} initial={{ y: 10 }} whileInView={{ y: 0 }} transition={{ duration: 0.5, ease: "easeOut"}} className="py-5 px-5 shadow-xl border-2 border-gray-200 rounded-xl flex items-center gap-5 w-full">
                                         <Icon.medal style={"w-8 h-8 fill-black"}/>
                                         <div className="w-full">
                                             <h4 className="text-lg text-textMain font-bold">{data.certifName}</h4>

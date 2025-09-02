@@ -77,60 +77,28 @@ export default function LandingPage({ openerSection }) {
     
     return (
         <div ref={sectionView}>
-            <section
-                className="lg:p-20 sm:p-10 xs:p-5 xs:pt-8 sm:pt-10"
-            >
-                <motion.h2
-                    initial={{ x: -100 }}
-                    whileInView={{ x: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut"}}
-                    className="text-center font-bold lg:text-3xl sm:text-2xl xs:text-2xl text-textMain"
-                >
-                    Hi, I'm Sinamo Kevin Nathanael
-                </motion.h2>
-                <motion.p 
-                    initial={{ x: 100 }}
-                    whileInView={{ x: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut"}}
-                    className="text-center lg:text-lg xs:text-base lg:mt-4 sm:mt-2 lg:w-2/3 mx-auto text-textSec"
-                >
-                    I’m a Software Engineering graduate with a strong focus on frontend web development. While I specialize in web interfaces, I also build simple mobile and desktop apps. Currently exploring the exciting world of AI and machine learning.
-                </motion.p>
-            </section>
-
-            <section className="lg:h-[80vh] xs:h-[50vh]">
-                <motion.div
-                    initial={{ y: 100 }}
-                    whileInView={{ y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut"}}
-                >
-                    <h2 className="font-semibold lg:text-2xl sm:text-xl text-center lg:mb-2 md:-mb-4 sm:-mb-6"
-                    >
-                        Face Behind the Code
-                    </h2>
-                    <div className="flex justify-center">
-                        <ArrowComponent.ArrowLR style={"w-1/4 fill-textSec sm:mt-0 xs:-mt-10"}/>
-                        <ArrowComponent.ArrowRL style={"w-1/4 fill-textSec sm:mt-0 xs:-mt-10"}/>
-                    </div>
-                </motion.div>
-                <div className="flex justify-center w-full h-full lg:mt-0 sm:-mt-5 xs:-mt-10">
-                    <motion.div 
-                        initial={{ y: -100 }}
-                        whileInView={{ y: 0 }}
+            <section className="lg:p-20 sm:p-10 xs:p-5 xs:pt-8 sm:pt-10 flex lg:flex-row lg:justify-around lg:items-center lg:h-[90vh]">
+                <div className="w-1/2">
+                    <motion.p 
+                        initial={{ x: 100 }}
+                        whileInView={{ x: 0 }}
                         transition={{ duration: 0.5, ease: "easeInOut"}}
-                        className="relative sm:w-1/2 xs:w-2/3 xs:h-1/2 lg:h-2/3"
+                        className="text-center lg:text-lg xs:text-base lg:mt-4 sm:mt-2 mx-auto text-textSec"
                     >
-                        <Image 
+                        <span className="font-bold text-textMain text-2xl">Hi I'm Sinamo Kevin Nathanael</span> a Software Engineering graduate with a strong focus on <span className="font-bold">frontend web development</span>. While I specialize in web interfaces, I also build simple <span className="font-bold">mobile and desktop apps</span>. Currently exploring the exciting world of <span className="font-bold">AI and machine learning</span>.
+                    </motion.p>
+                </div>
+                <div className="aspect-video w-1/3 z-20 relative">
+                    <Image 
                             src={'/myPict.jpg'}
                             fill
                             alt="Sinamo Kevin Nathanael Picture"
                             className="brightness-90 drop-shadow-xl rounded-b-xl lg:grayscale hover:grayscale-0 object-cover object-right"
                         />
-                    </motion.div>
                 </div>
             </section>
 
-            <section className="lg:h-[90vh] flex flex-col lg:justify-center">
+            <section className="lg:h-[80vh] flex flex-col lg:justify-center">
                 <motion.h2 
                     initial={{ x: -500 }}
                     whileInView={{ x: 0 }}
@@ -255,8 +223,8 @@ export default function LandingPage({ openerSection }) {
             </section>
 
             <motion.section
-                initial={{ x: 110 }}
-                whileInView={{ x: 1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeInOut"}} 
                 id="contact" className="lg:h-screen xs:h-[50vh] flex lg:flex-row xs:flex-col justify-around items-center lg:px-30 xs:px-10 relative"
             >
