@@ -3,12 +3,11 @@ import { supabase } from "@/lib/supabase";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
-    const { searchParams } = new URL(request.url);
-    const secret = searchParams.get('secret');
+    // const isFromCron = request.headers.get("x-vercel-cron") === "1";
 
-    if (secret !== process.env.CRON_SECRET) {
-        return new Response('Unauthorized', { status: 401 });
-    }
+    // if (!isFromCron) {
+    //     return new Response('Unauthorized', { status: 401 });
+    // }
 
     try{
         const { data, error } = await supabase  
