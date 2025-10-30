@@ -4,5 +4,12 @@
       "path": "/api/cron",
       "schedule": "0 0 */3 * *"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.sinamokevin.my.id/$1",
+      "permanent": true
+    }
   ]
 }
