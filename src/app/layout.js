@@ -15,9 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Vin's Portofolio",
   description: "Hi, I'm Sinamo Kevin Nathanael — a passionate web developer offering custom app & website solutions. Check out my projects, certifications, and services.",
-  icons: {
-    icon: '/VinLogo.ico'
-  },
+  
   openGraph: {
     title: "Sinamo Kevin N Portofolio",
     description: "Hi, I'm Sinamo Kevin Nathanael — a passionate web developer offering custom app & website solutions. Check out my projects, certifications, and services.",
