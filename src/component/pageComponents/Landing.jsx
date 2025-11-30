@@ -51,8 +51,8 @@ export default function LandingPage({ openerSection }) {
             tools: "Android Studio"
         },
         ml : {
-            lang: "Python | KERAS | TensorFlow",
-            tools: "Google Colab | Visual Studio Code"
+            lang: "Python | Scikit | KERAS | TensorFlow",
+            tools: "Google Colab | Visual Studio Code | Jupyter Notebook"
         }
     }
 
@@ -85,7 +85,7 @@ export default function LandingPage({ openerSection }) {
                         transition={{ duration: 0.5, ease: "easeInOut"}}
                         className="text-center lg:text-lg xs:text-base lg:mt-4 sm:mt-2 mx-auto text-textSec"
                     >
-                        <span className="font-bold text-textMain text-2xl">Hi I'm Sinamo Kevin Nathanael</span> a Software Engineering graduate with a strong focus on <span className="font-bold">frontend web development</span>. While I specialize in web interfaces, I also build simple <span className="font-bold">mobile and desktop apps</span>. Currently exploring the exciting world of <span className="font-bold">AI and machine learning</span>.
+                        <span className="font-bold text-textMain text-2xl">I'm Sinamo Kevin Nathanael</span> a Software Engineering graduate with a strong focus on <span className="font-bold">frontend web development</span>. While I specialize in web interfaces, I also build simple <span className="font-bold">mobile and desktop apps</span>. Currently exploring the exciting world of <span className="font-bold">AI and machine learning</span>.
                     </motion.p>
                 </div>
                 <div className="aspect-video w-1/3 z-20 relative">

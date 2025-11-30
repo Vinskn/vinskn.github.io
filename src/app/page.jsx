@@ -38,19 +38,19 @@ export default function App() {
                             initial= {{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="w-full h-screen bg-black text-gray-200 flex flex-col justify-center items-center"
+                            className="w-full h-screen bg-white text-gray-200 flex flex-col justify-center items-center"
                         >
                             <motion.h1 
                                 initial={{ scale: 0 }}
                                 whileInView={{ scale: 1}}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                                 viewport={{ once: false }}
-                                className="lg:text-5xl sm:text-3xl xs:text-xl font-bold text-white"
+                                className="lg:text-5xl sm:text-3xl xs:text-xl font-bold text-black"
                             >
                                 Hi, I'm a Software Developer
                             </motion.h1>
 
-                            <div className="xs:text-sm sm:text-lg lg:text-xl">
+                            <div className="xs:text-sm sm:text-lg lg:text-xl text-gray-700">
                                 <Typewriter 
                                     options={{
                                         strings: ['Mainly as Frontend Web Developer', "Desktop & Mobile Developer", "Fullstack Web" ,"Rest API", "Machine Learning & Artificial Inteligence"],
@@ -63,9 +63,12 @@ export default function App() {
                             </div>
                         </motion.section>
 
-                        <section ref={welcomeSectionRef} className="w-full h-[90vh] bg-black flex flex-col justify-center items-center relative">
+                        <section ref={welcomeSectionRef} className="w-full h-[50vh] bg-white flex flex-col justify-center items-center relative">
                             <motion.h2
-                                className="lg:text-3xl sm:text-2xl xs:text-lg font-bold text-start text-white z-20"
+                                className="lg:text-3xl sm:text-2xl xs:text-lg font-bold text-start text-black z-20"
+                                initial={{ scale: 0 }}
+                                whileInView={{ scale: 1}}
+                                transition={{ duration: 0.8, ease: "easeOut" }}
                             >
                                 Welcome to My Portofolio Website
                             </motion.h2>
