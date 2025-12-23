@@ -72,20 +72,6 @@ export default function App() {
                             >
                                 Welcome to My Portofolio Website
                             </motion.h2>
-                            <motion.div
-                                style={{
-                                    scaleX: reversedProgress,
-                                    originX: 1,
-                                }}
-                                className="absolute w-1/2 h-full bg-background bottom-0 left-0"
-                            />
-                            <motion.div
-                                style={{
-                                    scaleX: reversedProgress,
-                                    originX: 0,
-                                }}
-                                className="absolute w-1/2 h-full bg-background bottom-0 right-0"
-                            />
                         </section>
 
                         <LandingPage openerSection={setInLanding}/>

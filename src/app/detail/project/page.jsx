@@ -149,7 +149,7 @@ export default function Project({  }) {
                                     <div className="flex gap-3 my-2 text-white ">
                                         {
                                             data.utils.map((data, idx) => (
-                                                <span className="px-3 py-1 bg-secAccent rounded-lg text-sm">{data}</span>
+                                                <span key={idx} className="px-3 py-1 bg-secAccent rounded-lg text-sm">{data}</span>
                                             ))
                                         }
                                     </div>
