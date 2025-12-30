@@ -2,8 +2,10 @@ import { supabase } from "@/lib/supabase";
 import { NextResponse } from "next/server";
 
 
-export async function GET(req) {   
-    let query = supabase.from('ProjectList').select('*').order('date', { ascending: false })
+export async function GET(req, { params }) {
+    const { id } = await params;
+    
+    let query = supabase.from('ProjectList').select('*').eq('id', id).order('date', { ascending: false })
 
     const { data, error } = await query
     if (error) {

@@ -6,8 +6,9 @@ import { notFound } from "next/navigation"
 
 
 export default async function DetailProject({ params }) {
-    const slug = params.slug;
-    const res = await fetch(`${process.env.BASE_URL}/api/project?id=${slug}`, {
+    const slug = await params;    
+    
+    const res = await fetch(`${process.env.BASE_URL}/api/project/${slug.slug}`, {
         cache: 'force-cache'
     });
 
