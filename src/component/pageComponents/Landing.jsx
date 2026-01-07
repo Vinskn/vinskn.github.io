@@ -77,18 +77,18 @@ export default function LandingPage({ openerSection }) {
     
     return (
         <div ref={sectionView}>
-            <section className="lg:p-20 sm:p-10 xs:p-5 xs:pt-8 sm:pt-10 flex lg:flex-row lg:justify-around lg:items-center lg:h-[90vh]">
-                <div className="w-1/2">
+            <section className="lg:p-20 sm:p-10 xs:p-5 xs:pt-8 sm:pt-10 flex lg:flex-row xs:flex-col-reverse lg:justify-around lg:items-center lg:h-[90vh]">
+                <div className="lg:w-1/2 xs:w-full">
                     <motion.p 
                         initial={{ x: 100 }}
                         whileInView={{ x: 0 }}
                         transition={{ duration: 0.5, ease: "easeInOut"}}
-                        className="text-center lg:text-lg xs:text-base lg:mt-4 sm:mt-2 mx-auto text-textSec"
+                        className="text-center lg:text-lg xs:text-base lg:mt-4 sm:mt-2 mx-auto text-textSec "
                     >
-                        <span className="font-bold text-textMain text-2xl">I'm Sinamo Kevin Nathanael</span> a Software Engineering graduate with a strong focus on <span className="font-bold">frontend web development</span>. While I specialize in web interfaces, I also build simple <span className="font-bold">mobile and desktop apps</span>. Currently exploring the exciting world of <span className="font-bold">AI and machine learning</span>.
+                        <span className="font-bold text-textMain lg:text-2xl xs:text-xl">I'm Sinamo Kevin Nathanael</span> a Software Engineering graduate with a strong focus on <span className="font-bold">frontend web development</span>. While I specialize in web interfaces, I also build simple <span className="font-bold">mobile and desktop apps</span>. Currently exploring the exciting world of <span className="font-bold">AI and machine learning</span>.
                     </motion.p>
                 </div>
-                <div className="aspect-video w-1/3 z-20 relative">
+                <div className="aspect-video lg:w-1/3 xs:w-full lg:mb-0 xs:mb-5 z-20 relative">
                     <Image 
                             src={'/myPict.jpg'}
                             fill
@@ -209,7 +209,7 @@ export default function LandingPage({ openerSection }) {
                                         <ul className="flex gap-2 text-sm text-gray-800 mt-3 w-3/4 cursor-default select-none">
                                             {
                                                 data.utils.map((i, idx) => (
-                                                    <li key={idx} className="bg-bgSoft py-0.5 px-2 rounded-lg border border-gray-400">{i}</li>
+                                                    <li key={idx} className="bg-bgSoft lg:py-0.5 lg:px-2 xs:px-1 lg:text-base xs:text-xs rounded-lg border border-gray-400">{i}</li>
                                                 ))
                                             }
                                         </ul>
@@ -226,7 +226,7 @@ export default function LandingPage({ openerSection }) {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeInOut"}} 
-                id="contact" className="lg:h-screen xs:h-[50vh] flex lg:flex-row xs:flex-col justify-around items-center lg:px-30 xs:px-10 relative"
+                id="contact" className="lg:h-screen xs:h-[50vh] flex lg:flex-row xs:flex-col justify-around items-center lg:px-30 xs:px-10 relative xs:mb-20 lg:mb-0"
             >
                 <div className="lg:w-2/3 xs:w-full">
                     <h2 className="lg:text-7xl xs:text-4xl font-bold">Get in Touch</h2>
@@ -259,5 +259,3 @@ export default function LandingPage({ openerSection }) {
         </div>
     )
 }
-
-// mailto:vinskn1@gmail.com?subject=Hello%20Sinamo%2C%20I’d%20like%20to%20get%20in%20touch&body=Hi%20Sinamo%2C
