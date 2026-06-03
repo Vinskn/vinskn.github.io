@@ -6,6 +6,9 @@ import SectionDivider from "../pageAssets/SectionDivider";
 import Link from "next/link";
 import { IconBrandDiscord, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconDevicePhone, IconEyeClosed, IconGlobe2, IconMail, IconProcessor } from "@intentui/icons";
 import { motion } from 'motion/react'
+import { useGetSkills } from "@/lib/hooks/getSkills";
+import SkillCarousel from "./SkillsCarousel";
+import useScreenSize from "@/lib/hooks/screenSizeHook";
 
 export default function LandingPage({ openerSection }) {
     
@@ -37,7 +40,7 @@ export default function LandingPage({ openerSection }) {
     };
 
     const [ skillActive, setSkillActive ] = useState(0);
-    const dataSkills = {
+    const skills = {
         web: {
             lang: "HTML | CSS | Javascript | React | NextJS | TailwindCSS | Bootsrap5 | SupabaseDB | ExpressJS | MySQL | SupabaseDB | MongoDB  PHP | Python",
             tools: "Visual Studio Code | Figma | Github | Git | Canva | Corel Draw"
@@ -74,6 +77,11 @@ export default function LandingPage({ openerSection }) {
         }
         fetchData();
     },[])
+
+    const { data: dataSkill } = useGetSkills();
+
+    const { width } = useScreenSize();
+    
     
     return (
         <div ref={sectionView}>
@@ -152,10 +160,10 @@ export default function LandingPage({ openerSection }) {
                                 exit={{ opacity: 0, x: 20 }}
                                 transition={{ duration: 0.5}}
                             >
-                                {skillActive == 0 && <p className="text-center">{dataSkills.web.lang}</p>}
-                                {skillActive == 1 && <p className="text-center">{dataSkills.api.lang}</p>}
-                                {skillActive == 2 && <p className="text-center">{dataSkills.mobile.lang}</p>}
-                                {skillActive == 3 && <p className="text-center">{dataSkills.ml.lang}</p>}
+                                {skillActive == 0 && <p className="text-center">{skills.web.lang}</p>}
+                                {skillActive == 1 && <p className="text-center">{skills.api.lang}</p>}
+                                {skillActive == 2 && <p className="text-center">{skills.mobile.lang}</p>}
+                                {skillActive == 3 && <p className="text-center">{skills.ml.lang}</p>}
                             </motion.div>
                         </AnimatePresence>
                     </div>
@@ -169,13 +177,16 @@ export default function LandingPage({ openerSection }) {
                                 exit={{ opacity: 0, x: -20 }}
                                 transition={{ duration: 0.5}}
                             >
-                                {skillActive == 0 && <p className="text-center">{dataSkills.web.tools}</p>}
-                                {skillActive == 1 && <p className="text-center">{dataSkills.api.tools}</p>}
-                                {skillActive == 2 && <p className="text-center">{dataSkills.mobile.tools}</p>}
-                                {skillActive == 3 && <p className="text-center">{dataSkills.ml.tools}</p>}
+                                {skillActive == 0 && <p className="text-center">{skills.web.tools}</p>}
+                                {skillActive == 1 && <p className="text-center">{skills.api.tools}</p>}
+                                {skillActive == 2 && <p className="text-center">{skills.mobile.tools}</p>}
+                                {skillActive == 3 && <p className="text-center">{skills.ml.tools}</p>}
                             </motion.div>
                         </AnimatePresence>
                     </div>
+                </div>
+                <div className={`mt-8 w-[90%] bg-gray-100/70 ${width < 768 ? "py-1" : "py-5"} shadow-xs rounded-xl mx-auto overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] lg:[mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]`}>
+                    <SkillCarousel datas={dataSkill || []} direction={"horizontal"} duration={5000} width={width < 768 ? 35 : 50} height={width < 768 ? 35 : 50} />
                 </div>
             </section>
 

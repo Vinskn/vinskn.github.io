@@ -24,6 +24,8 @@ export default function NavPages({ addStyle }) {
     ];
 
     const pathname = usePathname();
+    console.log(pathname);
+    
     const getBackPath = () => {        
         const segments = pathname.split('/').filter(Boolean);
         const newPath = '/' + segments.slice(0, -1).join('/');
@@ -35,7 +37,7 @@ export default function NavPages({ addStyle }) {
     const backPath = getBackPath();
 
     return(
-        <div className={`flex justify-between items-center px-5 py-3 fixed w-full z-50 backdrop-blur-lg ${addStyle}`}>
+        <div className={`flex justify-between items-center px-5 py-3 fixed w-full z-100 backdrop-blur-lg ${addStyle}`}>
             <Link href={backPath}>
                 <VinLogo style={"fill-black w-10"}/>
             </Link>
@@ -62,7 +64,7 @@ export default function NavPages({ addStyle }) {
                                             transition={{ delay: idx * 0.1 }}
                                             whileHover={{ scale: 1.05 }}
                                             onClick={() => handleMenuClick(idx)}
-                                            className={`text-center text-2xl cursor-pointer select-none ${menuActive === idx ? 'font-bold text-white' : 'text-textSec'}`}
+                                            className={`text-center text-2xl cursor-pointer select-none ${pathname === item.dir ? 'font-bold text-white' : 'text-textSec'}`}
                                         >
                                             {item.label}
                                         </motion.li>
