@@ -1,20 +1,18 @@
-import { createClient } from "@supabase/supabase-js";
 import { useQuery } from "@tanstack/react-query";
 
 
 
 export const useGetCertificate = () => {
-    const supabase = createClient();
     return useQuery({
-        queryKey: ["Certificate"],
+        queryKey: ["certificate"],
         queryFn: async () => {
-            const { data, error } = await supabase
-                .from("Certificate")
-                .select('*');
-            if (error) {
-                throw error;
+            const res = await fetch("/api/certificate");
+            const data = await res.json();
+            if (res.ok) {
+                return data;
+            } else {
+                throw new Error(data.error);
             }
-            return data;
         },
         staleTime: 1000 * 60 * 3
     });

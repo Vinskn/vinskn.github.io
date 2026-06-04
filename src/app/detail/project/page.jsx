@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react"
 import { motion } from "motion/react";
 import Link from "next/link";
+import { useGetProject } from "@/lib/hooks";
 
 export default function Project({  }) {
 
@@ -25,21 +26,8 @@ export default function Project({  }) {
         exit: { opacity: 0, x: -20 },
     };
 
-    const [ projectList, setProjectList ] = useState([]);
-    const [ errorFetch, setErrorFetch ] = useState("");
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch('/api/project');
-            const result = await res.json();
-            if (res.ok) {
-                setProjectList(result)
-            } else {
-                setErrorFetch("Error: ", res.statusText)
-            }
-        }
-        fetchData();
-    },[])
+    const { data: projectList } = useGetProject();
     
     return(
         <div className="overflow-x-hidden">
@@ -88,14 +76,14 @@ export default function Project({  }) {
                         {projectList?.[0]?.image?.imageData && (
                             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5, ease: "easeInOut"}} className="relative w-9/10 aspect-video">
                                 <Image 
-                                    src={projectList[0].image.imageData[0]}
+                                    src={projectList?.[0]?.image?.imageData[0]}
                                     fill
                                     alt="Project Example 2"
                                     className="object-contain hover:z-10 hover:scale-101 transition duration-200"
                                 />
                                 <div className="absolute w-8/10 aspect-video -bottom-1/6 hover:z-10 hover:w-9/10 transition-all duration-200">
                                     <Image 
-                                        src={projectList[0].image.imageData[1]}
+                                        src={projectList?.[0]?.image?.imageData[1]}
                                         fill
                                         alt="Project Example 2"
                                         className="object-contain"
@@ -103,7 +91,7 @@ export default function Project({  }) {
                                 </div>
                                 <div className="absolute w-6/10 aspect-video right-0 top-1/2 transform -translate-y-1/2 hover:z-10 hover:w-9/10 transition-all duration-200">
                                     <Image 
-                                        src={projectList[0].image.imageData[2]}
+                                        src={projectList?.[0]?.image?.imageData[2]}
                                         fill
                                         alt="Project Example 2"
                                         className="object-contain"
@@ -114,8 +102,8 @@ export default function Project({  }) {
                         }
                     </div>
                     <div className="lg:w-1/2 lg:mt-0 xs:mt-5 text-justify">
-                        <motion.p initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, ease: "easeInOut"}}>{projectList[0]?.projectDesc}</motion.p>
-                        <Link href={`/detail/project/${projectList[0]?.id}`}>
+                        <motion.p initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, ease: "easeInOut"}}>{projectList?.[0]?.projectDesc}</motion.p>
+                        <Link href={`/detail/project/${projectList?.[0]?.id}`}>
                             <motion.button initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeInOut"}} className="mt-10 lg:px-5 xs:px-15 py-2 bg-hoverAccent hover:bg-secAccent text-white font-bold rounded-xl block lg:mx-0 xs:mx-auto">See Website</motion.button>
                         </Link>
                     </div>
@@ -124,13 +112,12 @@ export default function Project({  }) {
            </section>
 
            <section className="lg:px-15 px-3">
-                <p>{errorFetch}</p>
                 <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, ease: "easeInOut"}}>
                     <h2 className="text-4xl font-bold lg:text-start text-center">Recent Project</h2>
                     <SectionDivider style={'block lg:mx-0 xs:mx-auto'}/>
                 </motion.div>
                 <div className="flex lg:gap-5 gap-2 flex-wrap justify-center">
-                    { projectList.slice(0, 6).map((data, idx) => (
+                    { projectList?.slice(0, 6).map((data, idx) => (
                         <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, ease: "easeInOut"}} className="relative lg:w-4/10 w-full h-75 m-5 bg-bgSoft rounded-lg">
                             <Link href={`/detail/project/${data.id}`}>
                                 <div className="relative w-full h-75 aspect-video">

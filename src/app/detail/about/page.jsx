@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import SkillCarousel from "@/component/pageComponents/SkillsCarousel";
 import useScreenSize from "../../../lib/hooks/screenSizeHook";
 import { useGetSkills } from "@/lib/hooks/getSkills";
+import { useGetCertificate } from "@/lib/hooks";
 
 export default function About({}) {
     const Arrow1 = motion.create(IconArrowDown);
@@ -16,36 +17,10 @@ export default function About({}) {
     const Arrow3 = motion.create(IconArrowDown);
 
     const [certifSeeMore, setCertifSeeMore] = useState(false);
-    const [certifList, setCertifList] = useState([]);
-    const [errorFetch, setErrorFetch] = useState("");
-
-    const images = [
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441845/html-5_gbh5pu.png",
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441850/Tailwind_CSS_sgngsd.png",
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441850/TypeScript_wcczff.png",
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441845/html-5_gbh5pu.png",
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441850/Tailwind_CSS_sgngsd.png",
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441850/TypeScript_wcczff.png",
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441845/html-5_gbh5pu.png",
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441850/Tailwind_CSS_sgngsd.png",
-        "https://res.cloudinary.com/destefwak/image/upload/v1777441850/TypeScript_wcczff.png",
-    ];
 
     const { width } = useScreenSize();
     const { data: skillData } = useGetSkills();
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch("/api/certificate");
-            const result = await res.json();
-            if (res.ok) {
-                setCertifList(result);
-            } else {
-                setErrorFetch("Error: ", res.statusText);
-            }
-        };
-        fetchData();
-    }, []);
+    const { data: certifList } = useGetCertificate();
 
     return (
         <div className="px-10 overflow-x-hidden snap-y snap-proximity overflow-y-scroll h-screen">
@@ -227,8 +202,7 @@ export default function About({}) {
                             Some of my achievements during my study
                         </motion.p>
                         <div className="lg:mt-10 mt-5 flex flex-col gap-4">
-                            <p className="text-red-600">{errorFetch}</p>
-                            {certifList.slice(0, certifSeeMore ? certifList.length : 3).map((data, idx) => (
+                            {certifList?.slice(0, certifSeeMore ? certifList.length : 3).map((data, idx) => (
                                 <motion.div
                                     key={idx}
                                     initial={{ y: 10 }}

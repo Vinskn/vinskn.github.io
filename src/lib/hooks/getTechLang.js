@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 
-
-export const useGetProject = () => {
+export const useGetTechLang = () => {
     return useQuery({
-        queryKey: ["Project"],
+        queryKey: ["TechLang"],
         queryFn: async () => {
-            const res = await fetch("/api/project");
+            const res = await fetch("/api/techlang");
             const data = await res.json();
             if (res.ok) {
                 return data;
