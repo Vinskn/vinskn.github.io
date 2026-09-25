@@ -1,4 +1,4 @@
-import NavPages from "@/component/NavPages";
+import NavPages from "@/component/shared/NavPages";
 
 
 export default function DetailLayout({ children }) {

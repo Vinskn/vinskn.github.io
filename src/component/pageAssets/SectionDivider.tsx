@@ -1,5 +1,5 @@
 
-export default function SectionDivider({ style }) {
+export default function SectionDivider({ style }: {style?: string}) {
     return(
         <svg
             width={180}

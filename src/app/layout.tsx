@@ -1,0 +1,52 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import TanstackProviders from "../lib/provider/TanstackProvider";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Vin's Portofolio",
+  description:
+    "Hi, I'm Sinamo Kevin Nathanael — a passionate web developer offering custom app & website solutions. Check out my projects, certifications, and services.",
+
+  openGraph: {
+    title: "Sinamo Kevin N Portofolio",
+    description:
+      "Hi, I'm Sinamo Kevin Nathanael — a passionate web developer offering custom app & website solutions. Check out my projects, certifications, and services.",
+    images: [
+      {
+        url: "https://sinamokevin.vercel.app/Vin's%20Logo.png",
+        width: 500,
+        height: 500,
+      },
+    ],
+    type: "website",
+    locale: "id_ID",
+  },
+  other: {
+    "google-site-verification": "ALAFA2kuLtmoJAceRK3AVK_U-MEfQyhLZ5opr9D6hPo",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="antialiased">
+        <TanstackProviders>{children}</TanstackProviders>
+      </body>
+    </html>
+  );
+}

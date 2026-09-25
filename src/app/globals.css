@@ -41,3 +41,413 @@ body {
 .side {
   @apply absolute w-full h-full;
 }
+
+/* ===== Carousel Wrapper ===== */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+/* Navigation arrows */
+.carousel-nav {
+  position: absolute;
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-nav:hover {
+  background: var(--color-mainAccent);
+  border-color: var(--color-mainAccent);
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(229, 57, 53, 0.35);
+}
+
+.carousel-nav:active {
+  transform: scale(0.95);
+}
+
+.carousel-nav--prev {
+  left: -8px;
+}
+
+.carousel-nav--next {
+  right: -8px;
+}
+
+/* Swiper overrides */
+.project-swiper {
+  width: 100%;
+  padding: 2rem 0 3rem;
+  overflow: visible;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.project-swiper .swiper-wrapper {
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.project-slide {
+  max-width: 400px;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.35;
+  filter: blur(2px);
+  transform-style: preserve-3d;
+}
+
+/* Active (center) slide — fully visible */
+.project-slide.swiper-slide-active {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+/* Adjacent slides — moderately visible */
+.project-slide.swiper-slide-prev,
+.project-slide.swiper-slide-next {
+  opacity: 0.55;
+  filter: blur(0.5px);
+}
+
+/* ===== Project Card — Container ===== */
+.project-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  perspective: 1000px;
+}
+
+/* ===== Back Layer (revealed on hover) ===== */
+.project-card__back {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(
+    145deg,
+    #2a2a2a 0%,
+    #1a1a1a 40%,
+    #111111 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Cassette reel decorations */
+.project-card__back::before,
+.project-card__back::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-card__back::before {
+  width: 80px;
+  height: 80px;
+  top: 15%;
+  left: 12%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.04) 30%,
+    transparent 31%,
+    transparent 60%,
+    rgba(255, 255, 255, 0.03) 61%
+  );
+}
+
+.project-card__back::after {
+  width: 60px;
+  height: 60px;
+  bottom: 20%;
+  right: 15%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.04) 30%,
+    transparent 31%,
+    transparent 60%,
+    rgba(255, 255, 255, 0.03) 61%
+  );
+}
+
+.project-card__back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  padding: 1.5rem;
+  z-index: 2;
+  position: relative;
+}
+
+.project-card__back-arrow {
+  color: var(--color-mainAccent);
+  filter: drop-shadow(0 0 12px rgba(229, 57, 53, 0.4));
+  animation: pulse-arrow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-arrow {
+  0%, 100% { transform: translate(0, 0); opacity: 1; }
+  50% { transform: translate(3px, -3px); opacity: 0.7; }
+}
+
+.project-card__back-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.project-card__back-subtitle {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+
+/* ===== Front Layer (the card face) ===== */
+.project-card__front {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #1a1a1a;
+  z-index: 5;
+  transform-origin: left center;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+  will-change: transform;
+}
+
+/* Diagonal image area */
+.project-card__image-wrapper {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0% 35%, 100% 15%, 100% 85%, 0% 65%);
+  z-index: 1;
+}
+
+.project-card__image {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card__image {
+  transform: scale(1.08);
+}
+
+.project-card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+/* Content layer */
+.project-card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem;
+  pointer-events: none;
+}
+
+/* Top icon */
+.project-card__icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Titles */
+.project-card__titles {
+  margin-bottom: auto;
+}
+
+.project-card__name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.project-card__subtitle {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+/* Description */
+.project-card__desc {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+/* Tags */
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  list-style: none;
+  padding: 0;
+}
+
+.project-card__tag {
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Diagonal accent line on front */
+.project-card__accent-line {
+  position: absolute;
+  top: 33%;
+  left: -5%;
+  width: 110%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(-20deg);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Front border */
+.project-card__front::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 1024px) {
+  .project-slide {
+    width: 320px;
+  }
+
+  .project-slide.swiper-slide-active {
+    width: 380px;
+  }
+
+  .carousel-nav--prev {
+    left: -16px;
+  }
+
+  .carousel-nav--next {
+    right: -16px;
+  }
+
+  .project-card__name {
+    font-size: 1.75rem;
+  }
+
+  .project-card__desc {
+    font-size: 0.78rem;
+  }
+
+  .project-card__tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .project-slide {
+    width: 220px;
+  }
+
+  .project-slide.swiper-slide-active {
+    width: 260px;
+  }
+
+  .carousel-nav {
+    width: 38px;
+    height: 38px;
+  }
+
+  .carousel-nav--prev {
+    left: -4px;
+  }
+
+  .carousel-nav--next {
+    right: -4px;
+  }
+
+  .carousel-nav svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .project-card__name {
+    font-size: 1.25rem;
+  }
+
+  .project-card__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .project-card__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}

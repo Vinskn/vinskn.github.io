@@ -1,6 +1,4 @@
 "use client";
-
-import useScreenSize from "@/lib/hooks/screenSizeHook";
 import Image from "next/image";
 
 export default function SkillCarousel({ duration, datas, orientation = "horizontal", width = 50, height = 50 }) {

@@ -5,7 +5,7 @@ import { motion, AnimatePresence  } from "framer-motion";
 
 
 export default function NavSection({  }) {
-    const [ openMenu, setOpenMenu ] = useState(false);
+    const [ openMenu, setOpenMenu ] = useState<boolean>(false);
     const [ menuActive, setMenuActive ] = useState(0);
 
     const handleMenuClick = (menuNo) => {

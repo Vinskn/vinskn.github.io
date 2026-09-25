@@ -1,4 +1,4 @@
-import Footer from "@/component/Footer";
+import Footer from "@/component/shared/Footer";
 import { IconBrandGithub, IconChainLink } from "@intentui/icons";
 import Image from "next/image";
 import Link from "next/link";
