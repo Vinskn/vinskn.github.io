@@ -66,7 +66,7 @@ export const HeroSection = () => {
                 'Mobile Developer',
                 'Desktop Developer',
                 'AI/ML Engineer',
-                'Network Engineer',
+                'Network & IoT Engineer',
               ],
               autoStart: true,
               loop: true,

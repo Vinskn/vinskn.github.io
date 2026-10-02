@@ -30,6 +30,6 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/detail/about/page.tsx", "src/component/shared/Footer.tsx"  ],
   "exclude": ["node_modules"]
 }

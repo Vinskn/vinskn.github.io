@@ -15,4 +15,8 @@ export type TProject = {
   utils: string[];
   websiteLink: string;
   workType: 'Academic' | 'Professional' | 'Freelance' | string;
+  image: {
+    coverUrl: string;
+    imageList: string[];
+  }
 }

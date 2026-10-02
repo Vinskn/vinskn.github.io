@@ -71,7 +71,7 @@ export const StackSection = ({dataTechLang}: {dataTechLang: TSkill[]}) => {
           <p
             className={`font-semibold lg:text-base xs:text-sm ${skillActive == 1 ? "text-textMain" : "text-textSec"}`}
           >
-            Network
+            Network & IoT
           </p>
         </motion.div>
         <motion.div

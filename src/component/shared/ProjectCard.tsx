@@ -1,19 +1,11 @@
 "use client";
-import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { TProject } from "@/types/projectType";
-import { useState } from "react";
 
 export const ProjectCard = ({ data }: { data: TProject }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <div
-      className="project-card"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="project-card">
       <div className="project-card__back">
         <div className="project-card__back-content">
           <svg
@@ -38,17 +30,7 @@ export const ProjectCard = ({ data }: { data: TProject }) => {
       </div>
 
       <Link href={`/detail/project/${data._id}`}>
-        <motion.div
-          className="project-card__front"
-          animate={{
-            x: isHovered ? "65%" : "0%",
-            rotateY: isHovered ? -8 : 0,
-          }}
-          transition={{
-            duration: 0.45,
-            ease: [0.4, 0, 0.2, 1],
-          }}
-        >
+        <div className="project-card__front">
 
           <div className="project-card__image-wrapper">
             <Image
@@ -103,7 +85,7 @@ export const ProjectCard = ({ data }: { data: TProject }) => {
 
           {/* Diagonal accent line */}
           <div className="project-card__accent-line" />
-        </motion.div>
+        </div>
       </Link>
     </div>
   );
