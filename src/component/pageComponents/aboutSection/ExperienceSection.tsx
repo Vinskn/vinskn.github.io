@@ -35,33 +35,6 @@ const defaultItems: TimelineItem[] = [
     position: 'top',
     isCompleted: true,
   },
-  {
-    id: 3,
-    year: '2001',
-    title: 'iPod',
-    description:
-      'The iPod is a discontinued series of portable media players and multi-purpose mobile devices.',
-    position: 'bottom',
-    isCompleted: true,
-  },
-  {
-    id: 4,
-    year: '2007',
-    title: 'iPhone',
-    description:
-      "iPhone is a line of smartphones produced by Apple Inc. that use Apple's own iOS mobile operating system.",
-    position: 'top',
-    isCompleted: true,
-  },
-  {
-    id: 5,
-    year: '2015',
-    title: 'Apple Watch',
-    description:
-      'The Apple Watch is a line of smartwatches produced by Apple Inc.',
-    position: 'bottom',
-    isCompleted: true,
-  },
 ];
 
 export const ExperienceSection: React.FC<HorizontalTimelineProps> = ({
