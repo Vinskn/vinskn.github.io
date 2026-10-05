@@ -1,3 +1,7 @@
+import { motion } from 'motion/react';
+import Link from 'next/link';
+
+
 export const ContactSection = () => {
   return (
     <section className="flex flex-col justify-center">

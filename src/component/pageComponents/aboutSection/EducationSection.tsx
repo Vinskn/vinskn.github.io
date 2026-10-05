@@ -1,4 +1,11 @@
-export const EducationSection = () => {
+import { motion } from 'motion/react'
+import SkillCarousel from '../SkillsCarousel';
+import { TSkill } from '@/types/skillType';
+import { useScreenSize } from '@/lib/hooks/screenSizeHook';
+
+
+export const EducationSection = ({skillData}: {skillData: TSkill[]}) => {
+  const {width} = useScreenSize();
   return (
     <section className="lg:snap-center lg:px-15 lg:h-screen mt-15 lg:mt-0 flex flex-col justify-center">
       <motion.h2
@@ -84,7 +91,7 @@ export const EducationSection = () => {
           </motion.p>
         </motion.div>
 
-        <div className="lg:w-1/3 w-full lg:h-80 flex lg:flex-row gap-6 overflow-hidden mt-2 lg:mt-0 relative [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] lg:[mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] py-4">
+        <div className="lg:w-1/3 w-full lg:h-80 flex lg:flex-row gap-6 overflow-hidden mt-2 lg:mt-0 relative mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] lg:mask-[linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] py-4">
           {/* in mobile */}
           {width < 768 ? (
             <>
