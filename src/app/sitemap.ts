@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { getAllProject } from "@/lib/helper/getAllProject";
 
-const BASE_URL = "https://vin.my.id";
+const BASE_URL = "https://sinamokevin.navatech.me";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projects = await getAllProject();
